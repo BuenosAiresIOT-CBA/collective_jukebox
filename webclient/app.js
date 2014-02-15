@@ -33,34 +33,24 @@ app.post('/api/v1/room/playlist/add', junkebox.add);
 
 
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
 
 
-//REMOVE TO ADD SOCKETS SUPPORT.
+// //REMOVE TO ADD SOCKETS SUPPORT.
 // var io = require('socket.io').listen(server);
-// if (process.env.NODE_ENV ==='production'){
-//   //For Heroku
-//   io.configure(function () {
-//       io.set("transports", ["xhr-polling"]);
-//       io.set("polling duration", 10);
-//       io.set("log level", 1);
-//   });
-// }
 
-// io.sockets.on('connection', function(socket) {
-//   socket.broadcast.emit("new-user", {});
-//   socket.on('new-playlist', function(msg) {
-//       console.log("new-playlist", msg);
-//       socket.broadcast.emit("new-item", msg);
-//   });
-
-//   socket.on('room-ready', function(msg) {
-//       socket.broadcast.emit('ready', {});
-//   });
+// io.sockets.on('connection', function (socket) {
+//     socket.emit('message', { message: 'welcome to the chat' });
+//     socket.on('send', function (data) {
+//         io.sockets.emit('message', data);
+//     });
+//     setInterval(function(){
+//       socket.emit('message', { message: 'welcome to the chat' });
+//     },500);
 // });
-
 
 

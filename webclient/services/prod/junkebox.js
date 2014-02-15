@@ -11,6 +11,10 @@ spotify.login(username, password, true, false);
 exports.search = function(q,success){
   var search = new spotify.Search(q);
   search.execute( function(err, searchResult) {
+  	for (var i = 0; i < searchResult.length; i++) {
+  		searchResult[i].cover = 'data:image/jpeg;base64,' + album.getCoverBase64();
+
+  	};
     success(searchResult);  
   });
 };

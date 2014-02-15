@@ -9,7 +9,16 @@ angular.module('collectiveApp.controllers').
 	junkeboxService.room(function(data){
 		$scope.room = data;
 	});
-	
 
+	
+	// var socket = new io.connect();
+	// socket.on('message', function (data) {
+	// 	console.log(data);
+	// });
+			
+		  
+		
+
+	
 
 });
