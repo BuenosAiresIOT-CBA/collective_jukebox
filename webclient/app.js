@@ -4,11 +4,12 @@ var express 		= require('express')
 	, junkebox 		= require('./routes/junkebox')
 	, http 			= require('http')
 	, path 			= require('path');
+	
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.SERVER_PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
 
 app.get('/', routes.index);
 

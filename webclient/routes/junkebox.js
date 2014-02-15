@@ -3,13 +3,11 @@
 var http = require("http");
 var junkebox = require("../services/mock/junkebox");
 var spotify = require("../services/mock/spotify");
+var db = require("../services/junkeboxdb");
 
 //UNCOMMENT WHEN IS READY! 
 // var junkebox = require("../services/prod/junkebox");
-// var spotify = require("../services/prod/spotify");
-
-
-
+//var spotify = require("../services/prod/spotify");
 
 exports.search = function(request,response){
 
