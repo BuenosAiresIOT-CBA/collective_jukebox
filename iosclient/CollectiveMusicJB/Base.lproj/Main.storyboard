@@ -170,7 +170,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="handleSearchOnClickButton:" destination="BDz-wQ-Wgl" eventType="touchUpInside" id="1tl-mw-xLS"/>
                                     <segue destination="qPw-ob-z3D" kind="push" identifier="showDetailSegue" id="F9z-gw-F7y"/>
                                 </connections>
                             </button>

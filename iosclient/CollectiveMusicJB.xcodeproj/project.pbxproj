@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08E4508B18B00EEE00A76DBA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4508918B00EEE00A76DBA /* RoomViewController.m */; };
+		08E4508F18B0150C00A76DBA /* SongAdditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4508E18B0150C00A76DBA /* SongAdditionViewController.m */; };
+		A13F4A1818B008B0003C04A1 /* SpotifySong.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1518B008B0003C04A1 /* SpotifySong.m */; };
+		A13F4A1918B008B0003C04A1 /* WebServiceJB.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1718B008B0003C04A1 /* WebServiceJB.m */; };
 		A1DA9E0318AF7F91008875C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0218AF7F91008875C9 /* Foundation.framework */; };
 		A1DA9E0518AF7F91008875C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0418AF7F91008875C9 /* CoreGraphics.framework */; };
 		A1DA9E0718AF7F91008875C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0618AF7F91008875C9 /* UIKit.framework */; };
@@ -46,6 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08E4508818B00EEE00A76DBA /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		08E4508918B00EEE00A76DBA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		08E4508D18B0150C00A76DBA /* SongAdditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongAdditionViewController.h; sourceTree = "<group>"; };
+		08E4508E18B0150C00A76DBA /* SongAdditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongAdditionViewController.m; sourceTree = "<group>"; };
+		A13F4A1418B008B0003C04A1 /* SpotifySong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySong.h; sourceTree = "<group>"; };
+		A13F4A1518B008B0003C04A1 /* SpotifySong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySong.m; sourceTree = "<group>"; };
+		A13F4A1618B008B0003C04A1 /* WebServiceJB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceJB.h; sourceTree = "<group>"; };
+		A13F4A1718B008B0003C04A1 /* WebServiceJB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceJB.m; sourceTree = "<group>"; };
 		A1DA9DFF18AF7F91008875C9 /* CollectiveMusicJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectiveMusicJB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DA9E0218AF7F91008875C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1DA9E0418AF7F91008875C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +128,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A13F4A1A18B008BB003C04A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A13F4A1418B008B0003C04A1 /* SpotifySong.h */,
+				A13F4A1518B008B0003C04A1 /* SpotifySong.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A13F4A1B18B008C1003C04A1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA9E4618AF922C008875C9 /* AFNetworking */,
+				A13F4A1618B008B0003C04A1 /* WebServiceJB.h */,
+				A13F4A1718B008B0003C04A1 /* WebServiceJB.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		A13F4A1C18B008D8003C04A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA9E1718AF7F91008875C9 /* ViewController.h */,
+				A1DA9E1818AF7F91008875C9 /* ViewController.m */,
+				A1DA9E4018AF8B14008875C9 /* InstructionsViewController.h */,
+				A1DA9E4118AF8B14008875C9 /* InstructionsViewController.m */,
+				A1DA9E4318AF8F4B008875C9 /* SearchViewController.h */,
+				A1DA9E4418AF8F4B008875C9 /* SearchViewController.m */,
+				A1DA9E6318AF9526008875C9 /* MusicListTableViewController.h */,
+				A1DA9E6418AF9526008875C9 /* MusicListTableViewController.m */,
+				08E4508818B00EEE00A76DBA /* RoomViewController.h */,
+				08E4508918B00EEE00A76DBA /* RoomViewController.m */,
+				08E4508D18B0150C00A76DBA /* SongAdditionViewController.h */,
+				08E4508E18B0150C00A76DBA /* SongAdditionViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A13F4A1D18B008EA003C04A1 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA9E1118AF7F91008875C9 /* AppDelegate.h */,
+				A1DA9E1218AF7F91008875C9 /* AppDelegate.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		A1DA9DF618AF7F91008875C9 = {
 			isa = PBXGroup;
 			children = (
@@ -149,20 +208,12 @@
 		A1DA9E0818AF7F91008875C9 /* CollectiveMusicJB */ = {
 			isa = PBXGroup;
 			children = (
-				A1DA9E4618AF922C008875C9 /* AFNetworking */,
-				A1DA9E1718AF7F91008875C9 /* ViewController.h */,
-				A1DA9E1818AF7F91008875C9 /* ViewController.m */,
-				A1DA9E1118AF7F91008875C9 /* AppDelegate.h */,
-				A1DA9E1218AF7F91008875C9 /* AppDelegate.m */,
-				A1DA9E1418AF7F91008875C9 /* Main.storyboard */,
 				A1DA9E1A18AF7F91008875C9 /* Images.xcassets */,
+				A13F4A1D18B008EA003C04A1 /* Control */,
+				A13F4A1C18B008D8003C04A1 /* Controllers */,
+				A13F4A1A18B008BB003C04A1 /* Model */,
+				A13F4A1B18B008C1003C04A1 /* Networking */,
 				A1DA9E0918AF7F91008875C9 /* Supporting Files */,
-				A1DA9E4018AF8B14008875C9 /* InstructionsViewController.h */,
-				A1DA9E4118AF8B14008875C9 /* InstructionsViewController.m */,
-				A1DA9E4318AF8F4B008875C9 /* SearchViewController.h */,
-				A1DA9E4418AF8F4B008875C9 /* SearchViewController.m */,
-				A1DA9E6318AF9526008875C9 /* MusicListTableViewController.h */,
-				A1DA9E6418AF9526008875C9 /* MusicListTableViewController.m */,
 			);
 			path = CollectiveMusicJB;
 			sourceTree = "<group>";
@@ -170,6 +221,7 @@
 		A1DA9E0918AF7F91008875C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1DA9E1418AF7F91008875C9 /* Main.storyboard */,
 				A1DA9E0A18AF7F91008875C9 /* CollectiveMusicJB-Info.plist */,
 				A1DA9E0B18AF7F91008875C9 /* InfoPlist.strings */,
 				A1DA9E0E18AF7F91008875C9 /* main.m */,
@@ -320,8 +372,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DA9E5F18AF922C008875C9 /* AFURLConnectionOperation.m in Sources */,
+				08E4508B18B00EEE00A76DBA /* RoomViewController.m in Sources */,
 				A1DA9E5A18AF922C008875C9 /* AFHTTPRequestOperation.m in Sources */,
 				A1DA9E5D18AF922C008875C9 /* AFNetworkReachabilityManager.m in Sources */,
+				08E4508F18B0150C00A76DBA /* SongAdditionViewController.m in Sources */,
 				A1DA9E6218AF922C008875C9 /* AFURLSessionManager.m in Sources */,
 				A1DA9E6018AF922C008875C9 /* AFURLRequestSerialization.m in Sources */,
 				A1DA9E1918AF7F91008875C9 /* ViewController.m in Sources */,
@@ -332,7 +386,9 @@
 				A1DA9E5B18AF922C008875C9 /* AFHTTPRequestOperationManager.m in Sources */,
 				A1DA9E5E18AF922C008875C9 /* AFSecurityPolicy.m in Sources */,
 				A1DA9E0F18AF7F91008875C9 /* main.m in Sources */,
+				A13F4A1818B008B0003C04A1 /* SpotifySong.m in Sources */,
 				A1DA9E4218AF8B14008875C9 /* InstructionsViewController.m in Sources */,
+				A13F4A1918B008B0003C04A1 /* WebServiceJB.m in Sources */,
 				A1DA9E5C18AF922C008875C9 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +598,7 @@
 				A1DA9E3318AF7F91008875C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1DA9E3418AF7F91008875C9 /* Build configuration list for PBXNativeTarget "CollectiveMusicJBTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +607,7 @@
 				A1DA9E3618AF7F91008875C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

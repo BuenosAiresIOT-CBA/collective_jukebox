@@ -7,12 +7,22 @@
 //
 
 #import "MusicListTableViewController.h"
+#import "AFNetworking.h"
+#import "WebServiceJB.h"
+
+#import "SpotifySong.h"
 
 @interface MusicListTableViewController ()
+@property (nonatomic, strong) NSMutableArray *itemsList;
+@property (nonatomic, strong) NSError *oError;
 
 @end
 
 @implementation MusicListTableViewController
+
+@synthesize songName;
+@synthesize itemsList;
+@synthesize oError;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,14 +36,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"QUEPEDOS");
-    NSLog(@"%@",self.songName);
+    
+    self.title = songName;
+    
+    //Inicializo array vacio. (Podría ser alloc + init, pero esto es lo mismo y más careta)
+    self.itemsList = [@[] mutableCopy];
+    
+    //Inicializo la API del servicio RSS.
+    WebServiceJB* oWS = [[WebServiceJB alloc] init];
+    
+    //Genero la URL del Web service.
+    NSString *URLStringNoSong = @"http://collectivemock.herokuapp.com/api/v1/search/";
+    NSString *URLString = [URLStringNoSong stringByAppendingFormat:@"%@", self.songName];
+    
+    NSLog(@"URLString (GET) : %@",URLString);
+    
+    [oWS getRssMainItemsFromURL: URLString WithBlock:^(id returnedObject, NSError *error) {
+        self.itemsList = [returnedObject mutableCopy];
+        self.oError = error;
+        
+        NSLog(@"ITEMS AFUERA DE BLOQUE: %@",returnedObject);
+        
+        //Esto es para que vuelva a cargar el view, después de toda esta llamada.
+        [self.tableView reloadData];
+        
+    }];
+    
+    //NSLog(@"ITEMS AFUERA DE BLOQUE: %d",[self.itemsList count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,26 +73,53 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.itemsList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:CellIdentifier];
+        
+        // Acá defino el estilo de la celda.
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.textColor = [UIColor colorWithRed:51./255.
+                                                   green:153./255.
+                                                    blue:204./255.
+                                                   alpha:1.0];
+        
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:0./255.
+                                                   green:0./255.
+                                                    blue:0./255.
+                                                   alpha:.8];
+        cell.detailTextLabel.numberOfLines = 1;
+    }
+    
+    //Acá cargo el titulo y descripción de cada celda.
+    
+	SpotifySong *song = [self.itemsList objectAtIndex:indexPath.row];
+//    TODO: Rellenar la celda con los datos!
+    
+    cell.textLabel.text = song.songName;
+    cell.detailTextLabel.text = song.songAlbumName;
     
     return cell;
 }
