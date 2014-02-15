@@ -8,6 +8,12 @@ var password = "hotdog1234";
 
 spotify.login(username, password, true, false);
 
+exports.search = function(q,success){
+  var search = new spotify.Search(q);
+  search.execute( function(err, searchResult) {
+    success(searchResult);  
+  });
+};
 exports.playlist = function(success){
 	fs.readFile(MOCK_SEARCH, 'utf8', function (err, data) {
 	  if (err) {
