@@ -2,15 +2,19 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('collectiveApp', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'collectiveApp.filters',
+  'collectiveApp.services',
+  'collectiveApp.directives',
+  'collectiveApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/', {templateUrl: 'partials/start.html', controller: 'startController'});
+  $routeProvider.when('/instructions', {templateUrl: 'partials/instructions.html', controller: 'instructionsController'});
+  $routeProvider.when('/search', {templateUrl: 'partials/search.html', controller: 'searchController'});
+  $routeProvider.when('/room', {templateUrl: 'partials/room.html', controller: 'roomController'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);
+
+angular.module('collectiveApp.controllers', []);

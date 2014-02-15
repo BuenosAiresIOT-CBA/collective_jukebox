@@ -1,0 +1,33 @@
+<div class="row wrapper">
+		<header class="twelve columns centered sect_head">
+			<hgroup>
+				<h1>What would like to hear?</h1>
+			</hgroup>
+			<ul>
+			  <li class="append field">
+			    <input class="wide input" ng-model="query" type="" placeholder="..Muse? Metallica?" />
+			    <div class="medium primary btn"><a href="" ng-click="searchNow()">Go!</a></div>
+			    <h3><small> Powered by <strong>Spotify!</strong> </small> </h3>
+			  </li>
+			 </ul>
+		</header>
+		<div ng-show="searchOn">
+			<h2> There are {{room.playlist.length}} songs for <strong>{{query}} </strong></h2>
+				<div ng-repeat="song in results">
+					<div class="row">
+						<div class="ten columns">
+							<div class="row">
+								<div class="seven columns">
+									<h4>{{song.name}} by {{song.artists[0].name}} </h4>
+								</div>
+								<div class="three columns">
+									<div class="medium primary btn icon-right entypo icon-note-beamed">
+										<a href="" ng-click="play(song)">Play Now!</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+			</div>
+	</div>
+</div>

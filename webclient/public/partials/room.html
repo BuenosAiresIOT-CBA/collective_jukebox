@@ -1,0 +1,22 @@
+<div class="row wrapper">
+		<header class="twelve columns centered sect_head">
+
+  				<li class="secondary alert"><strong>{{newsong.name}} by {{newsong.artists[0].name}} </strong> has been added to the playlist!</li>
+  				<li class="primary alert"> You have to wait 10 minutes to add another song!</li>
+			
+		</header>
+		<div>
+			<h2 class> There are {{room.playlist.length}} songs on the <strong>{{room.junkebox.name}}'s Playlist </strong></h2>
+				<div ng-repeat="song in room.playlist">
+					<div class="row">
+						<div class="ten columns">
+							<h4><strong>{{song.name}}</strong> by {{song.artists[0].name}} </h4>
+						</div>
+					</div>
+				</div>	
+			</div>
+				<ul class="socbtns">
+				<li><div class="btn xlarge oval  primary"><a href="/#/search">Add More Songs!</a></div></li>
+			</ul>
+	</div>
+</div>
