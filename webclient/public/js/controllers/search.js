@@ -14,7 +14,9 @@ angular.module('collectiveApp.controllers').
 			});
 		};
 		$scope.play = function(song){
-			$rootScope.currentSong = song;
-			$location.path( "/room" );
+			junkeboxService.add(song, function(data){
+				$rootScope.currentSong = song;
+				$location.path( "/room" );
+			});
 		}
   });
