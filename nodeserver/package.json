@@ -14,7 +14,12 @@
     "express": "3.4.0",
     "mongoose": "~3.6.20",
     "npm": "~1.3.11",
-    "install": "~0.1.7"
+    "install": "~0.1.7",
+    "spotify": "*",
+    "lame": "*",
+    "speaker": "*",
+    "spotify-web": "*",
+    "libspotify": "*"
   }
 }
 
