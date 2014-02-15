@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MusicListTableViewController : UITableViewController
-@property (strong,nonatomic) NSString* songName;
+
+@property (strong, nonatomic) NSString *songName;
+
 @end

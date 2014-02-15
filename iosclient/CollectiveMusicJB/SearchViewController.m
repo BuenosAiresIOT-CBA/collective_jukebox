@@ -7,7 +7,9 @@
 //
 
 #import "SearchViewController.h"
+
 #import "MusicListTableViewController.h"
+#import "AFNetworking.h"
 
 @interface SearchViewController ()
 
@@ -36,25 +38,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*- (IBAction)handleSearchOnClickButton:(id)sender {
 
-    
-    MusicListTableViewController *oMusicController = [[MusicListTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    
-    oMusicController.songName = self.textField.text;
-    
-    [self.navigationController pushViewController:oMusicController animated:NO];
-    
-}*/
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showDetailSegue"])
+    {
+        MusicListTableViewController *destinationController = (UIViewController *)segue.destinationViewController;
+        
+        if ([destinationController isKindOfClass:[MusicListTableViewController class]])
+        {
+            destinationController.songName = self.textField.text;
+        }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"showDetailSegue"]){
-        
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        
-        MusicListTableViewController *oMusicController = (MusicListTableViewController*)navController.topViewController;
-        
-        oMusicController.songName = self.textField;
     }
 }
 
