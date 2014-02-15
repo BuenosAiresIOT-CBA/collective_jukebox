@@ -1,13 +1,9 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
+var express 		= require('express')
+	, routes		= require('./routes')
+	, user 			= require('./routes/user')
+	, junkebox 		= require('./routes/junkebox')
+	, http 			= require('http')
+	, path 			= require('path');
 
 var app = express();
 
@@ -29,8 +25,42 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+
+
+app.get('/api/v1/room', junkebox.room);
+app.get('/api/v1/search/:q', junkebox.search);
+app.post('/api/v1/room/playlist/add', junkebox.add);
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+
+//REMOVE TO ADD SOCKETS SUPPORT.
+// var io = require('socket.io').listen(server);
+// if (process.env.NODE_ENV ==='production'){
+//   //For Heroku
+//   io.configure(function () {
+//       io.set("transports", ["xhr-polling"]);
+//       io.set("polling duration", 10);
+//       io.set("log level", 1);
+//   });
+// }
+
+// io.sockets.on('connection', function(socket) {
+//   socket.broadcast.emit("new-user", {});
+//   socket.on('new-playlist', function(msg) {
+//       console.log("new-playlist", msg);
+//       socket.broadcast.emit("new-item", msg);
+//   });
+
+//   socket.on('room-ready', function(msg) {
+//       socket.broadcast.emit('ready', {});
+//   });
+// });
+
+
+
