@@ -5,8 +5,8 @@ var MOCK_SEARCH = 'services/mock/spotify.search.json';
 var spotify = require('spotify')({ appkeyFile: './spotify_appkey.key' });
 var username = "11122869937";
 var password = "hotdog1234";
-spotify.login(username, password, true, false);
 
+spotify.login(username, password, true, false);
 
 exports.playlist = function(success){
 	fs.readFile(MOCK_SEARCH, 'utf8', function (err, data) {
@@ -23,24 +23,19 @@ exports.playlist = function(success){
 exports.add = function(song,success){
 	var playlist =[];
 	playlist.push(song);
+
 	
-	console.log("about to play:" +  JSON.stringify(song));
-	spotify.ready( function() {
-		
-		spotify.player.play(song);
-		console.log("playing:" + JSON.stringify(song));
-		var result = {
-	      success: true,
-	      isNext: true,
-	      when : 0,
-	      how: "minutes",
-	      toWait: 0,
-	      room:{
-	        playlist: playlist
-	      }
-		};
-		success(result);
+	var search = new spotify.Search('Muse');
+	search.execute( function(err, searchResult) {
+		console.log("error", err);
+		spotify.player.stop();
+		track = spotify.createFromLink(song.link);
+		spotify.player.play(track);
+		console.log("playing:" + JSON.stringify(track));		
 	});
+	var result = {};
+	success(result);
+	
 };
 
 
