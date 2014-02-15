@@ -4,12 +4,11 @@ var express 		= require('express')
 	, junkebox 		= require('./routes/junkebox')
 	, http 			= require('http')
 	, path 			= require('path');
-	
 
 var app = express();
 
 // all environments
-app.set('port', process.env.SERVER_PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -25,13 +24,18 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-
 app.get('/', routes.index);
 
 
-app.get('/api/v1/room', junkebox.room);
+
 app.get('/api/v1/search/:q', junkebox.search);
+
+app.get('/api/v1/room', junkebox.room);
 app.post('/api/v1/room/playlist/add', junkebox.add);
+app.post('/api/v1/room/playlist/clear', junkebox.clear);
+app.post('/api/v1/room/playlist/stop', junkebox.stop);
+app.post('/api/v1/room/playlist/play', junkebox.play);
+app.post('/api/v1/room/playlist/skip', junkebox.skip);
 
 
 
@@ -50,7 +54,7 @@ server.listen(app.get('port'), function(){
 //     socket.on('send', function (data) {
 //         io.sockets.emit('message', data);
 //     });
-//     setInterval(function(){
+//     setInterval(-function(){
 //       socket.emit('message', { message: 'welcome to the chat' });
 //     },500);
 // });

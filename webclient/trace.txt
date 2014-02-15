@@ -1,0 +1,7 @@
+libspotify trace from 12.1.103.gd51f6226 Release Linux-armv6-bcm2708hardfp 
+
+< sp_session_create() = 0
+> sp_session_process_events(0x1240100 0xbeee8184) on 0xb6f47340
+< sp_session_process_events() = 300173
+> sp_session_process_events(0x1240100 0xbeee8184) on 0xb6f47340
+< sp_session_process_events() = 299984
