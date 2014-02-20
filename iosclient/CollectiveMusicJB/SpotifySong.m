@@ -8,19 +8,6 @@
 
 #import "SpotifySong.h"
 
-/*
- album = {
- link = "spotify:album:3KuXEGcqLcnEYWnn3OEGy0";
- name = "The 2nd Law";
- };
- artists = (
- {
- link = "spotify:artist:12Chz98pHFMPJEknJQMWvI";
- name = Muse;
- }
- );
-*/
-
 @implementation SpotifySong
 
 @synthesize songAlbumLink;
@@ -67,8 +54,8 @@
     {
         self.songAlbumLink = ([dictionary objectForKey:@"album"] != nil) ? [[dictionary objectForKey:@"album"] objectForKey:@"link"] : nil;
         self.songAlbumName = ([dictionary objectForKey:@"album"] != nil) ? [[dictionary objectForKey:@"album"] objectForKey:@"name"] : nil;
-        self.songArtistLink = ([dictionary objectForKey:@"artists"] != nil) ? [[[dictionary objectForKey:@"artist"] objectAtIndex:0] objectForKey:@"link"] : nil;
-        self.songArtistName = ([dictionary objectForKey:@"artists"] != nil) ? [[[dictionary objectForKey:@"artist"] objectAtIndex:0] objectForKey:@"name"] : nil;
+        self.songArtistLink = ([dictionary objectForKey:@"artists"] != nil) ? [[[dictionary objectForKey:@"artists"] objectAtIndex:0] objectForKey:@"link"] : nil;
+        self.songArtistName = ([dictionary objectForKey:@"artists"] != nil) ? [[[dictionary objectForKey:@"artists"] objectAtIndex:0] objectForKey:@"name"] : nil;
         self.songDuration = ([dictionary objectForKey:@"duration"] != nil) ? [NSString stringWithFormat:@"%d",(int)[dictionary objectForKey:@"duration"]] : nil;
         self.songLink = ([dictionary objectForKey:@"link"] != nil) ? [dictionary objectForKey:@"link"] : nil;
         self.songName = ([dictionary objectForKey:@"name"] != nil) ? [dictionary objectForKey:@"name"] : nil;
