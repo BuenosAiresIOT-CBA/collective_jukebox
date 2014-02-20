@@ -7,12 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "AFNetworking.h"
 
-typedef void (^RssServiceAPIServiceResponseCompletitionBlock)(id returnedObject, NSError *error);
+#import "SpotifySong.h"
+
+typedef void (^JukeBoxAPIServiceResponseCompletionBlock)(id returnedObject, NSError *error);
 
 @interface WebServiceJB : NSObject
 
-- (void)getRssMainItemsFromURL:(NSString*) URLString WithBlock:(RssServiceAPIServiceResponseCompletitionBlock) block;
++ (WebServiceJB *)sharedService;
+
+- (void)searchSongsWith:(NSString *)text withBlock:(JukeBoxAPIServiceResponseCompletionBlock)block;
+
+- (void)postSongOnPlaylist:(SpotifySong *)song withBlock:(JukeBoxAPIServiceResponseCompletionBlock)block;
+
+- (void)visitRoomWithBlock:(JukeBoxAPIServiceResponseCompletionBlock)block;
 
 @end
