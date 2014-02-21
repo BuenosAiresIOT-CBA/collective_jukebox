@@ -7,10 +7,10 @@
 //
 
 #import "MusicListTableViewController.h"
-#import "AFNetworking.h"
-#import "WebServiceJB.h"
 
-#import "SpotifySong.h"
+#import "SongAdditionViewController.h"
+
+#import "WebServiceJB.h"
 
 @interface MusicListTableViewController ()
 @property (nonatomic, strong) NSMutableArray *itemsList;
@@ -37,32 +37,25 @@
 {
     [super viewDidLoad];
     
-    self.title = songName;
+    self.title = self.songName;
     
     //Inicializo array vacio. (Podría ser alloc + init, pero esto es lo mismo y más careta)
     self.itemsList = [@[] mutableCopy];
     
     //Inicializo la API del servicio RSS.
-    WebServiceJB* oWS = [[WebServiceJB alloc] init];
-    
-    //Genero la URL del Web service.
-    NSString *URLStringNoSong = @"http://collectivemock.herokuapp.com/api/v1/search/";
-    NSString *URLString = [URLStringNoSong stringByAppendingFormat:@"%@", self.songName];
-    
-    NSLog(@"URLString (GET) : %@",URLString);
-    
-    [oWS getRssMainItemsFromURL: URLString WithBlock:^(id returnedObject, NSError *error) {
-        self.itemsList = [returnedObject mutableCopy];
-        self.oError = error;
-        
-        NSLog(@"ITEMS AFUERA DE BLOQUE: %@",returnedObject);
-        
-        //Esto es para que vuelva a cargar el view, después de toda esta llamada.
-        [self.tableView reloadData];
-        
+    [[WebServiceJB sharedService] searchSongsWith:self.songName withBlock:^(id returnedObject, NSError *error)
+    {
+        if (!error)
+        {
+            self.itemsList = [returnedObject mutableCopy];
+            self.oError = error;
+            
+            //Esto es para que vuelva a cargar el view, después de toda esta llamada.
+            [self.tableView reloadData];
+        }
+        else
+        {}
     }];
-    
-    //NSLog(@"ITEMS AFUERA DE BLOQUE: %d",[self.itemsList count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -163,16 +156,26 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    self.selectedSong = [self.itemsList objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:@"addSongSegue" sender:self];
 }
 
- */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"addSongSegue"])
+    {
+        SongAdditionViewController *destinationController = (SongAdditionViewController *)segue.destinationViewController;
+        
+        if ([destinationController isKindOfClass:[SongAdditionViewController class]])
+        {
+            destinationController.selectedSong = self.selectedSong;
+        }
+    }
+}
 
 @end

@@ -11,5 +11,6 @@
 @interface MusicListTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *songName;
+@property (nonatomic, strong) SpotifySong *selectedSong;
 
 @end
