@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomViewController : UIViewController
+#import "SpotifyRoom.h"
+
+@interface RoomViewController : UITableViewController
+
+@property (nonatomic, strong) SpotifyRoom *retrievedRoom;
 
 @end
