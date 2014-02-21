@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		08E4508B18B00EEE00A76DBA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4508918B00EEE00A76DBA /* RoomViewController.m */; };
 		08E4508F18B0150C00A76DBA /* SongAdditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4508E18B0150C00A76DBA /* SongAdditionViewController.m */; };
+		08E4509318B020BD00A76DBA /* SpotifyRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4509218B020BD00A76DBA /* SpotifyRoom.m */; };
+		08E4509518B0343E00A76DBA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E4509418B0343E00A76DBA /* SystemConfiguration.framework */; };
+		08E4509718B0346400A76DBA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E4509618B0346400A76DBA /* MobileCoreServices.framework */; };
 		A13F4A1818B008B0003C04A1 /* SpotifySong.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1518B008B0003C04A1 /* SpotifySong.m */; };
 		A13F4A1918B008B0003C04A1 /* WebServiceJB.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1718B008B0003C04A1 /* WebServiceJB.m */; };
 		A1DA9E0318AF7F91008875C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0218AF7F91008875C9 /* Foundation.framework */; };
@@ -54,6 +57,11 @@
 		08E4508918B00EEE00A76DBA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		08E4508D18B0150C00A76DBA /* SongAdditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongAdditionViewController.h; sourceTree = "<group>"; };
 		08E4508E18B0150C00A76DBA /* SongAdditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongAdditionViewController.m; sourceTree = "<group>"; };
+		08E4509018B01B8100A76DBA /* CollectiveJukeBoxAppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectiveJukeBoxAppConfiguration.h; sourceTree = "<group>"; };
+		08E4509118B020BD00A76DBA /* SpotifyRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyRoom.h; sourceTree = "<group>"; };
+		08E4509218B020BD00A76DBA /* SpotifyRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyRoom.m; sourceTree = "<group>"; };
+		08E4509418B0343E00A76DBA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		08E4509618B0346400A76DBA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A13F4A1418B008B0003C04A1 /* SpotifySong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySong.h; sourceTree = "<group>"; };
 		A13F4A1518B008B0003C04A1 /* SpotifySong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySong.m; sourceTree = "<group>"; };
 		A13F4A1618B008B0003C04A1 /* WebServiceJB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceJB.h; sourceTree = "<group>"; };
@@ -109,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08E4509718B0346400A76DBA /* MobileCoreServices.framework in Frameworks */,
+				08E4509518B0343E00A76DBA /* SystemConfiguration.framework in Frameworks */,
 				A1DA9E0518AF7F91008875C9 /* CoreGraphics.framework in Frameworks */,
 				A1DA9E0718AF7F91008875C9 /* UIKit.framework in Frameworks */,
 				A1DA9E0318AF7F91008875C9 /* Foundation.framework in Frameworks */,
@@ -133,6 +143,8 @@
 			children = (
 				A13F4A1418B008B0003C04A1 /* SpotifySong.h */,
 				A13F4A1518B008B0003C04A1 /* SpotifySong.m */,
+				08E4509118B020BD00A76DBA /* SpotifyRoom.h */,
+				08E4509218B020BD00A76DBA /* SpotifyRoom.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,6 +209,8 @@
 		A1DA9E0118AF7F91008875C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08E4509618B0346400A76DBA /* MobileCoreServices.framework */,
+				08E4509418B0343E00A76DBA /* SystemConfiguration.framework */,
 				A1DA9E0218AF7F91008875C9 /* Foundation.framework */,
 				A1DA9E0418AF7F91008875C9 /* CoreGraphics.framework */,
 				A1DA9E0618AF7F91008875C9 /* UIKit.framework */,
@@ -221,6 +235,7 @@
 		A1DA9E0918AF7F91008875C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08E4509018B01B8100A76DBA /* CollectiveJukeBoxAppConfiguration.h */,
 				A1DA9E1418AF7F91008875C9 /* Main.storyboard */,
 				A1DA9E0A18AF7F91008875C9 /* CollectiveMusicJB-Info.plist */,
 				A1DA9E0B18AF7F91008875C9 /* InfoPlist.strings */,
@@ -374,6 +389,7 @@
 				A1DA9E5F18AF922C008875C9 /* AFURLConnectionOperation.m in Sources */,
 				08E4508B18B00EEE00A76DBA /* RoomViewController.m in Sources */,
 				A1DA9E5A18AF922C008875C9 /* AFHTTPRequestOperation.m in Sources */,
+				08E4509318B020BD00A76DBA /* SpotifyRoom.m in Sources */,
 				A1DA9E5D18AF922C008875C9 /* AFNetworkReachabilityManager.m in Sources */,
 				08E4508F18B0150C00A76DBA /* SongAdditionViewController.m in Sources */,
 				A1DA9E6218AF922C008875C9 /* AFURLSessionManager.m in Sources */,
