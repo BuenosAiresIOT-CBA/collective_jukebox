@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SongAdditionViewController : UIViewController
+#import "SpotifySong.h"
+
+@interface SongAdditionViewController : UIViewController <UIAlertViewDelegate>
+
+@property (nonatomic, strong) SpotifySong *selectedSong;
+@property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
 
 @end
