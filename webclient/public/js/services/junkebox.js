@@ -21,6 +21,30 @@ collectiveApp.service('junkeboxService', function($http) {
             $http.post(url, song).success(function(data){
   					callback(data);
 			});
+        },
+         stop: function(callback){
+            var url = "api/v1/room/playlist/stop";
+            $http.post(url, {}).success(function(data){
+                    callback(data);
+            });
+        },
+        play: function(callback){
+            var url = "api/v1/room/playlist/play";
+            $http.post(url, {}).success(function(data){
+                    callback(data);
+            });
+        },
+         clear: function(callback){
+            var url = "api/v1/room/playlist/clear";
+            $http.post(url, {}).success(function(data){
+                    callback(data);
+            });
+        },
+        skip: function(callback){
+            var url = "api/v1/room/playlist/skip";
+            $http.post(url, {}).success(function(data){
+                    callback(data);
+            });
         }
     };
 });

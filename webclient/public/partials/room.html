@@ -1,22 +1,46 @@
 <div class="row wrapper">
-		<header class="twelve columns centered sect_head">
 
-  				<li class="secondary alert"><strong>{{newsong.name}} by {{newsong.artists[0].name}} </strong> has been added to the playlist!</li>
-  				<li class="primary alert"> You have to wait 10 minutes to add another song!</li>
-			
+		<div ng-show="room.playlist.length">
+		<header class="twelve columns centered sect_head">
+				<div ng-show="newsong">
+	  				<li  class="secondary alert"><strong>{{newsong.name}} by {{newsong.artists[0].name}} </strong> has been added to the playlist!</li>
+	  				<li class="primary alert"> You have to wait 10 minutes to add another song!</li>
+				</div>
 		</header>
 		<div>
-			<h2 class> There are {{room.playlist.length}} songs on the <strong>{{room.junkebox.name}}'s Playlist </strong></h2>
+			
+				<h2> <strong>{{room.junkebox.name}}</strong></h2>
+					<li class="success alert"> There are {{room.playlist.length}} songs  </li>
 				<div ng-repeat="song in room.playlist">
 					<div class="row">
 						<div class="ten columns">
-							<h4><strong>{{song.name}}</strong> by {{song.artists[0].name}} </h4>
+							<h3 ng-show="isNowPlaying(song)" class="primary badge">Now Playing</h3>
+							<h3 ng-show="isSecondPlaying(song)" class="secondary badge">After that...</h3>
+							<h4>{{song.name}} by <strong> {{song.artists[0].name}} </strong> </h4>
 						</div>
 					</div>
 				</div>	
 			</div>
+			<hr/>
 				<ul class="socbtns">
-				<li><div class="btn xlarge oval  primary"><a href="/#/search">Add More Songs!</a></div></li>
+					<li class="success alert"> What's next? </li>
+				<li><div class="btn large oval  primary icon-left entypo icon-plus"><a href="/#/search">Add</a></div></li>
+				<li ng-hide="stopped"><div class="btn large oval  danger icon-left entypo icon-stop"><a href="" ng-click="stop()">Stop </a></div></li>
+				<li ng-show="stopped"><div class="btn large oval  secondary icon-left entypo icon-play"><a href="" ng-click="play()">Play! </a></div></li>
+				<li><div class="btn large oval  warning icon-left entypo icon-cancel"><a href="" ng-click="clear()">Clear</a></div></li>
+				<li><div class="btn large oval  success icon-left entypo icon-arrows-ccw"><a href="" ng-click="reload()">Reload!</a></div></li>
+<!-- 				<li><div class="btn large oval  danger icon-left entypo icon-thumbs-down"><a href="" ng-click="skip()">Skip</a></div></li> -->
 			</ul>
-	</div>
+	 </div>
+	 <div ng-hide="room.playlist.length">
+		
+			<h2 class> There are no  songs on this room :-(</h2>
+				<ul class="socbtns">
+				<li>
+					<div class="btn xlarge oval  primary">
+						<a href="/#/search">Add Songs Now!</a>
+					</div>
+				</li>
+			</ul>
+	 </div>
 </div>
