@@ -14,6 +14,9 @@
 		08E4509718B0346400A76DBA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E4509618B0346400A76DBA /* MobileCoreServices.framework */; };
 		A13F4A1818B008B0003C04A1 /* SpotifySong.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1518B008B0003C04A1 /* SpotifySong.m */; };
 		A13F4A1918B008B0003C04A1 /* WebServiceJB.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F4A1718B008B0003C04A1 /* WebServiceJB.m */; };
+		A188ED9C18BC0CE6005737DE /* SingleCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = A188ED9B18BC0CE6005737DE /* SingleCoin.m */; };
+		A188EDA218BC1609005737DE /* coin256.png in Resources */ = {isa = PBXBuildFile; fileRef = A188EDA018BC1609005737DE /* coin256.png */; };
+		A188EDA318BC1609005737DE /* coin32.png in Resources */ = {isa = PBXBuildFile; fileRef = A188EDA118BC1609005737DE /* coin32.png */; };
 		A1DA9E0318AF7F91008875C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0218AF7F91008875C9 /* Foundation.framework */; };
 		A1DA9E0518AF7F91008875C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0418AF7F91008875C9 /* CoreGraphics.framework */; };
 		A1DA9E0718AF7F91008875C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DA9E0618AF7F91008875C9 /* UIKit.framework */; };
@@ -66,6 +69,10 @@
 		A13F4A1518B008B0003C04A1 /* SpotifySong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySong.m; sourceTree = "<group>"; };
 		A13F4A1618B008B0003C04A1 /* WebServiceJB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceJB.h; sourceTree = "<group>"; };
 		A13F4A1718B008B0003C04A1 /* WebServiceJB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceJB.m; sourceTree = "<group>"; };
+		A188ED9A18BC0CE6005737DE /* SingleCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCoin.h; sourceTree = "<group>"; };
+		A188ED9B18BC0CE6005737DE /* SingleCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCoin.m; sourceTree = "<group>"; };
+		A188EDA018BC1609005737DE /* coin256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin256.png; sourceTree = "<group>"; };
+		A188EDA118BC1609005737DE /* coin32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin32.png; sourceTree = "<group>"; };
 		A1DA9DFF18AF7F91008875C9 /* CollectiveMusicJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectiveMusicJB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DA9E0218AF7F91008875C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1DA9E0418AF7F91008875C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +152,8 @@
 				A13F4A1518B008B0003C04A1 /* SpotifySong.m */,
 				08E4509118B020BD00A76DBA /* SpotifyRoom.h */,
 				08E4509218B020BD00A76DBA /* SpotifyRoom.m */,
+				A188ED9A18BC0CE6005737DE /* SingleCoin.h */,
+				A188ED9B18BC0CE6005737DE /* SingleCoin.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -187,6 +196,15 @@
 			name = Control;
 			sourceTree = "<group>";
 		};
+		A188ED9D18BC1403005737DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A188EDA018BC1609005737DE /* coin256.png */,
+				A188EDA118BC1609005737DE /* coin32.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A1DA9DF618AF7F91008875C9 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +240,7 @@
 		A1DA9E0818AF7F91008875C9 /* CollectiveMusicJB */ = {
 			isa = PBXGroup;
 			children = (
+				A188ED9D18BC1403005737DE /* Resources */,
 				A1DA9E1A18AF7F91008875C9 /* Images.xcassets */,
 				A13F4A1D18B008EA003C04A1 /* Control */,
 				A13F4A1C18B008D8003C04A1 /* Controllers */,
@@ -365,6 +384,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A188EDA318BC1609005737DE /* coin32.png in Resources */,
+				A188EDA218BC1609005737DE /* coin256.png in Resources */,
 				A1DA9E1B18AF7F91008875C9 /* Images.xcassets in Resources */,
 				A1DA9E0D18AF7F91008875C9 /* InfoPlist.strings in Resources */,
 				A1DA9E1618AF7F91008875C9 /* Main.storyboard in Resources */,
@@ -390,6 +411,7 @@
 				08E4508B18B00EEE00A76DBA /* RoomViewController.m in Sources */,
 				A1DA9E5A18AF922C008875C9 /* AFHTTPRequestOperation.m in Sources */,
 				08E4509318B020BD00A76DBA /* SpotifyRoom.m in Sources */,
+				A188ED9C18BC0CE6005737DE /* SingleCoin.m in Sources */,
 				A1DA9E5D18AF922C008875C9 /* AFNetworkReachabilityManager.m in Sources */,
 				08E4508F18B0150C00A76DBA /* SongAdditionViewController.m in Sources */,
 				A1DA9E6218AF922C008875C9 /* AFURLSessionManager.m in Sources */,

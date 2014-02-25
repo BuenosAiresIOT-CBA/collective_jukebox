@@ -12,9 +12,14 @@
 
 #import "WebServiceJB.h"
 
+#import "SingleCoin.h"
+
+
 @interface MusicListTableViewController ()
 @property (nonatomic, strong) NSMutableArray *itemsList;
 @property (nonatomic, strong) NSError *oError;
+@property (nonatomic, strong) SingleCoin* coin;
+@property (nonatomic, assign) BOOL coinForSong;
 
 @end
 
@@ -23,6 +28,8 @@
 @synthesize songName;
 @synthesize itemsList;
 @synthesize oError;
+@synthesize coin;
+@synthesize coinForSong;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,9 +40,49 @@
     return self;
 }
 
+- (void) hideCoin {
+    [UIView animateWithDuration:animationCoinTime animations:^{
+        self.navigationItem.titleView.alpha = 0;
+        
+    }];
+    
+    [UIView animateWithDuration:animationCoinTime animations:^{
+        self.useCoinButton.alpha = 0;
+        
+    }];
+}
+
+- (void) putCoinForASong{
+    NSLog(@"CLING!");
+    self.coinForSong = YES;
+    [self.coin useCoin];
+    [self hideCoin];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //There is no coins.
+    self.coinForSong = NO;
+    
+    //Loading coin class.
+    self.coin = [SingleCoin getCoin];
+    
+    [self.useCoinButton addTarget:self
+                           action:@selector(putCoinForASong)
+                 forControlEvents:UIControlEventTouchDown];
+    
+    
+    if ([coin haveCoin]){
+        UIImage *image = [UIImage imageNamed: @"coin32.png"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
+        self.navigationItem.titleView = imageView;
+    }
+    else{
+        self.useCoinButton.hidden = YES;
+    }
+
     
     self.title = self.songName;
     
@@ -94,15 +141,12 @@
         
         // Acá defino el estilo de la celda.
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.textColor = [UIColor colorWithRed:51./255.
-                                                   green:153./255.
-                                                    blue:204./255.
-                                                   alpha:1.0];
+        cell.textLabel.textColor = aquaColor;
         
         cell.detailTextLabel.textColor = [UIColor colorWithRed:0./255.
                                                    green:0./255.
                                                     blue:0./255.
-                                                   alpha:.8];
+                                                   alpha:alphaNoFocus];
         cell.detailTextLabel.numberOfLines = 1;
     }
     

@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,16 +42,27 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"showDetailSegue"])
+    if([segue.identifier isEqualToString:@"showMusicTableViewSegue"])
     {
         MusicListTableViewController *destinationController = (UIViewController *)segue.destinationViewController;
         
         if ([destinationController isKindOfClass:[MusicListTableViewController class]])
         {
-            destinationController.songName = self.textField.text;
+            if ([self.textField.text  isEqualToString: @"Muse? Metallica?"]){
+                destinationController.songName = @"";
+            }
+            else{
+                destinationController.songName = self.textField.text;
+            }
         }
-
     }
+}
+
+//This allows the user to hide keyboard touching anywhere.
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view] endEditing:YES];
 }
 
 @end

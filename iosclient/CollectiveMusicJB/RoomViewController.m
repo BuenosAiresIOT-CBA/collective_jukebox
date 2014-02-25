@@ -73,15 +73,12 @@
         
         // Acá defino el estilo de la celda.
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.textColor = [UIColor colorWithRed:51./255.
-                                                   green:153./255.
-                                                    blue:204./255.
-                                                   alpha:1.0];
+        cell.textLabel.textColor = aquaColor;
         
         cell.detailTextLabel.textColor = [UIColor colorWithRed:0./255.
                                                          green:0./255.
                                                           blue:0./255.
-                                                         alpha:.8];
+                                                         alpha:alphaNoFocus];
         cell.detailTextLabel.numberOfLines = 1;
     }
     

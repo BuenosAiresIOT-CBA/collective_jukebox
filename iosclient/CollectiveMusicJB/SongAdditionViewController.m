@@ -37,6 +37,7 @@
     [super viewDidLoad];
 	
     self.title = selectedSong.songName;
+    self.songNameLabel.textColor = aquaColor;
     self.songNameLabel.text = selectedSong.songName;
     
     [self addSongToPlaylist];

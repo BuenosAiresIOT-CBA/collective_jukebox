@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSString *songName;
 @property (nonatomic, strong) SpotifySong *selectedSong;
+@property (weak, nonatomic) IBOutlet UIButton *useCoinButton;
 
 @end

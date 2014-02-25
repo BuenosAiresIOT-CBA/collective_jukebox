@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface InstructionsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *firstInstruction;
+@property (weak, nonatomic) IBOutlet UILabel *secondInstruction;
+@property (weak, nonatomic) IBOutlet UILabel *thirdInstruction;
 
 @end

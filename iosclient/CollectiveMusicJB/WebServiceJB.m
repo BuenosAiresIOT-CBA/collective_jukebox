@@ -47,7 +47,8 @@
     [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObject:@"application/json"]];
     
     //Genero la URL del Web service.
-    NSString *URLString = [NSString stringWithFormat:@"%@%@%@", API_SIGNATURE, API_SEARCH, text];
+    NSString*  URLString = [NSString stringWithFormat:@"%@%@%@", API_SIGNATURE, API_SEARCH, text];
+        
     
     [manager GET:URLString
       parameters:nil
