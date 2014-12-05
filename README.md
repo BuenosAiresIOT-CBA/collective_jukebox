@@ -26,7 +26,7 @@ Esta version requiere una cuenta premium de Spotify!
 * [Franco Rabaglia]
 * [Marcos Vivar]
 
-Miembros de [HackathonMakers]
+Miembros de [Hackathon Makers]
 
 [Martín Rabaglia]: http://martinrabaglia.com.ar
 [Lucas Rudi]: http://twitter.com/thepiedrastone
